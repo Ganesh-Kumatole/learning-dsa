@@ -177,7 +177,60 @@ class Patterns {
       console.log(row);
     }
   }
+
+  pattern09(n) {
+    /*
+      1                 1
+      1 2             2 1
+      1 2 3         3 2 1
+      1 2 3 4     4 3 2 1
+      1 2 3 4 5 5 4 3 2 1 
+    */
+
+    // Iterate over rows
+    for (let i = 1; i <= n; i++) {
+      let row = '';
+
+      // Iterate over 1st triangle columns
+      for (let j = 1; j <= i; j++) {
+        row += j;
+      }
+
+      // Iterate over spaces
+      for (let k = 1; k <= 2 * n - 2 * i; k++) {
+        row += ' ';
+      }
+
+      // Iterate over 2nd triangle columns
+      for (let p = i; p >= 1; p--) {
+        row += p;
+      }
+
+      console.log(row);
+    }
+  }
+
+  pattern10(n) {
+    /*
+      A
+      A B
+      A B C
+      A B C D
+      A B C D E 
+    */
+
+    for (let i = 1; i <= n; i++) {
+      let row = '';
+      let char = 'A';
+
+      for (let j = 1; j <= i; j++) {
+        row += char;
+        char = String.fromCharCode(char.charCodeAt(0) + 1);
+      }
+      console.log(row);
+    }
+  }
 }
 
 const ptnrObj = new Patterns();
-ptnrObj.pattern08(8);
+ptnrObj.pattern10(7);
