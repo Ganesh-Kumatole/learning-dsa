@@ -230,7 +230,81 @@ class Patterns {
       console.log(row);
     }
   }
+
+  pattern11(n) {
+    /*
+     * * * * *
+     *       *
+     *       *
+     *       *
+     * * * * *
+     */
+
+    // Iterate over rows
+    for (let i = 1; i <= n; i++) {
+      let row = '';
+
+      // Iterate over columns
+
+      // All stars for 1st & last row
+      if (i === 1 || i === n) {
+        for (let j = 1; j <= n; j++) {
+          row += '*';
+        }
+      }
+      // Star at first & last for rest of rows
+      else {
+        row += '*';
+        for (let j = 2; j <= n - 1; j++) {
+          row += ' ';
+        }
+        row += '*';
+      }
+
+      console.log(row);
+    }
+  }
+
+  pattern12(n) {
+    /*
+      3 3 3 3 3
+      3 2 2 2 3
+      3 2 1 2 3
+      3 2 2 2 3
+      3 3 3 3 3
+    */
+
+    // Iterate over rows
+    for (let i = 1; i <= 2 * n - 1; i++) {
+      let row = ' ';
+      // Iterate over columns
+      for (let j = 1; j <= 2 * n - 1; j++) {
+        const fromTop = i - 1;
+        const fromBottom = 2 * n - 1 - i;
+        const fromLeft = j - 1;
+        const fromRight = 2 * n - 1 - j;
+
+        row += `${n - Math.min(fromTop, fromBottom, fromRight, fromLeft)} `;
+      }
+
+      console.log(row);
+    }
+  }
 }
 
 const ptnrObj = new Patterns();
-ptnrObj.pattern10(7);
+
+ptnrObj.pattern01(5);
+ptnrObj.pattern02(5);
+ptnrObj.pattern03(5);
+ptnrObj.pattern04(5);
+ptnrObj.pattern05(5);
+ptnrObj.pattern06(5);
+ptnrObj.pattern07(5);
+ptnrObj.pattern08(5);
+ptnrObj.pattern09(5);
+ptnrObj.pattern10(5);
+ptnrObj.pattern11(5);
+ptnrObj.pattern12(5);
+
+// Loved it!
